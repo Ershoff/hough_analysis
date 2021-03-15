@@ -20,8 +20,8 @@ with open(file_name) as f:
     train = list(set(tmp) - set(val))
 
     val_json = json.dumps({v : data[v] for v in val})
-    train_json = json.dumps({v : data[v] for v in test})
-    test_json = json.dumps({v : data[v] for v in train})
+    train_json = json.dumps({v : data[v] for v in train})
+    test_json = json.dumps({v : data[v] for v in test})
 
     with open("val.json", "w") as f: 
         f.write(val_json) 
