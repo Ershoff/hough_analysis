@@ -46,3 +46,8 @@
 ## Сроки 
 
 Соревнование длится до 15 мая.
+
+## Экстраданные
+
+1. Датасет из Пенсильвании (Zihan Zhou, Farshid Farhat, and James Z. Wang
+The Pennsylvania State University), немного более сложный, но полезный для наших целей https://faculty.ist.psu.edu/zzhou/projects/vpdetection/
