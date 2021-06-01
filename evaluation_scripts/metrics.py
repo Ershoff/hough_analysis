@@ -2,19 +2,16 @@ import os
 from math import degrees
 
 import numpy as np
-import csv
+import json
 import argparse
 import cv2
+from numpy.core.fromnumeric import shape
 
-def read_from_csv(path):
+def read_from_json(path):
     answers = dict()
 
-    with open(path, 'r') as csv_file:
-        reader = csv.reader(csv_file)
-        next(reader, None) # helps skip header
-        for row in reader:
-            name, x, y, _ = row[0].split(';')
-            answers[name] = tuple((int(x), int(y)))
+    with open(path, 'r') as json_file:
+        answers = json.load(json_file)
 
     return answers
 
@@ -42,8 +39,8 @@ def calculate_angle(ans, gt, shape):
 
 
 def calc_metrics(path_to_answers, path_to_gt, path_to_imgs):
-    answers = read_from_csv(path_to_answers)
-    gt = read_from_csv(path_to_gt)
+    answers = read_from_json(path_to_answers)
+    gt = read_from_json(path_to_gt)
     shapes = get_shapes(path_to_imgs)
 
     if set(answers.keys()) != set(gt.keys()) or set(answers.keys()) != set(shapes.keys()):
